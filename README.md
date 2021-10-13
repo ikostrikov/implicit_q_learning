@@ -1,6 +1,6 @@
 # Offline Reinforcement Learning with Implicit Q-Learning 
 
-This repository contains the official implementation of [Offline Reinforcement Learning with Implicit Q-Learning](https://arxiv.com) by [Ilya Kostrikov](https://kostrikov.xyz), [Ashvin Nair](https://ashvin.me/), and [Sergey Levine](https://people.eecs.berkeley.edu/~svlevine/). 
+This repository contains the official implementation of [Offline Reinforcement Learning with Implicit Q-Learning](https://arxiv.org/abs/2110.06169) by [Ilya Kostrikov](https://kostrikov.xyz), [Ashvin Nair](https://ashvin.me/), and [Sergey Levine](https://people.eecs.berkeley.edu/~svlevine/). 
 
 If you use this code for your research, please consider citing the paper:
 ```
