@@ -1,6 +1,6 @@
-# Offline Reinforcement Learning with Implicit Q-Learning 
+# Offline Reinforcement Learning with Implicit Q-Learning
 
-This repository contains the official implementation of [Offline Reinforcement Learning with Implicit Q-Learning](https://arxiv.com) by [Ilya Kostrikov](https://kostrikov.xyz), [Ashvin Nair](https://ashvin.me/), and [Sergey Levine](https://people.eecs.berkeley.edu/~svlevine/). 
+This repository contains the official implementation of [Offline Reinforcement Learning with Implicit Q-Learning](https://arxiv.com) by [Ilya Kostrikov](https://kostrikov.xyz), [Ashvin Nair](https://ashvin.me/), and [Sergey Levine](https://people.eecs.berkeley.edu/~svlevine/).
 
 If you use this code for your research, please consider citing the paper:
 ```
@@ -38,6 +38,11 @@ python train_offline.py --env_name=antmaze-large-play-v0 --config=configs/antmaz
 Kitchen and Adroit
 ```bash
 python train_offline.py --env_name=pen-human-v0 --config=configs/kitchen_config.py
+```
+
+Finetuning on AntMaze tasks
+```bash
+python train_finetune.py --env_name=antmaze-large-play-v0 --config=configs/antmaze_finetune_config.py --eval_episodes=100 --eval_interval=100000 --replay_buffer_size 2000000
 ```
 
 ## Misc

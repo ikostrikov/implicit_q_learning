@@ -1,9 +1,3 @@
-"""Finetuning with IQL
-
-example usage:
-python train_finetune.py --env_name=antmaze-large-play-v0 --config=configs/antmaze_config.py --eval_episodes=100 --eval_interval=100000 --replay_buffer_size 2000000
-"""
-
 import os
 from typing import Tuple
 
