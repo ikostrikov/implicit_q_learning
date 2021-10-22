@@ -79,7 +79,7 @@ def make_env_and_dataset(env_name: str,
 def main(_):
     summary_writer = SummaryWriter(os.path.join(FLAGS.save_dir, 'tb',
                                                 str(FLAGS.seed)),
-                                   write_to_disk=False)
+                                   write_to_disk=True)
     os.makedirs(FLAGS.save_dir, exist_ok=True)
 
     env, dataset = make_env_and_dataset(FLAGS.env_name, FLAGS.seed)
