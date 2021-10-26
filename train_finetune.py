@@ -9,7 +9,8 @@ from ml_collections import config_flags
 from tensorboardX import SummaryWriter
 
 import wrappers
-from dataset_utils import D4RLDataset, split_into_trajectories, ReplayBuffer, Batch
+from dataset_utils import (Batch, D4RLDataset, ReplayBuffer,
+                           split_into_trajectories)
 from evaluation import evaluate
 from learner import Learner
 
@@ -24,9 +25,12 @@ flags.DEFINE_integer('log_interval', 1000, 'Logging interval.')
 flags.DEFINE_integer('eval_interval', 5000, 'Eval interval.')
 flags.DEFINE_integer('batch_size', 256, 'Mini batch size.')
 flags.DEFINE_integer('max_steps', int(1e6), 'Number of training steps.')
-flags.DEFINE_integer('num_pretraining_steps', int(1e6), 'Number of pretraining steps.')
-flags.DEFINE_integer('replay_buffer_size', None, 'Replay buffer size (=max_steps if unspecified).')
-flags.DEFINE_integer('init_dataset_size', None, 'Offline data size (uses all data if unspecified).')
+flags.DEFINE_integer('num_pretraining_steps', int(1e6),
+                     'Number of pretraining steps.')
+flags.DEFINE_integer('replay_buffer_size', None,
+                     'Replay buffer size (=max_steps if unspecified).')
+flags.DEFINE_integer('init_dataset_size', None,
+                     'Offline data size (uses all data if unspecified).')
 flags.DEFINE_boolean('tqdm', True, 'Use tqdm progress bar.')
 config_flags.DEFINE_config_file(
     'config',
@@ -70,7 +74,7 @@ def make_env_and_dataset(env_name: str,
 
     if 'antmaze' in FLAGS.env_name:
         # dataset.rewards -= 1.0
-        pass # normalized in the batch instead
+        pass  # normalized in the batch instead
         # See https://github.com/aviralkumar2907/CQL/blob/master/d4rl/examples/cql_antmaze_new.py#L22
         # but I found no difference between (x - 0.5) * 4 and x - 1.0
     elif ('halfcheetah' in FLAGS.env_name or 'walker2d' in FLAGS.env_name
@@ -132,10 +136,10 @@ def main(_):
         batch = replay_buffer.sample(FLAGS.batch_size)
         if 'antmaze' in FLAGS.env_name:
             batch = Batch(observations=batch.observations,
-                     actions=batch.actions,
-                     rewards=batch.rewards - 1,
-                     masks=batch.masks,
-                     next_observations=batch.next_observations)
+                          actions=batch.actions,
+                          rewards=batch.rewards - 1,
+                          masks=batch.masks,
+                          next_observations=batch.next_observations)
         update_info = agent.update(batch)
 
         if i % FLAGS.log_interval == 0:

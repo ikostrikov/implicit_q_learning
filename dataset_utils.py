@@ -1,11 +1,10 @@
 import collections
+from typing import Optional
 
 import d4rl
 import gym
 import numpy as np
 from tqdm import tqdm
-
-from typing import Optional
 
 Batch = collections.namedtuple(
     'Batch',

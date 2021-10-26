@@ -18,6 +18,6 @@ def get_config():
 
     config.tau = 0.005  # For soft target updates.
 
-    config.opt_decay_schedule = None # Don't decay optimizer lr
+    config.opt_decay_schedule = None  # Don't decay optimizer lr
 
     return config

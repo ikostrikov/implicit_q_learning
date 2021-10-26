@@ -84,7 +84,7 @@ class Learner(object):
         if opt_decay_schedule == "cosine":
             schedule_fn = optax.cosine_decay_schedule(-actor_lr, int(1e6))
             optimiser = optax.chain(optax.scale_by_adam(),
-                                optax.scale_by_schedule(schedule_fn))
+                                    optax.scale_by_schedule(schedule_fn))
         else:
             optimiser = optax.adam(learning_rate=actor_lr)
 
