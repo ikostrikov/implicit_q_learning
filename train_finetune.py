@@ -19,22 +19,22 @@ FLAGS = flags.FLAGS
 flags.DEFINE_string('env_name', 'halfcheetah-expert-v2', 'Environment name.')
 flags.DEFINE_string('save_dir', './tmp/', 'Tensorboard logging dir.')
 flags.DEFINE_integer('seed', 42, 'Random seed.')
-flags.DEFINE_integer('eval_episodes', 10,
+flags.DEFINE_integer('eval_episodes', 100,
                      'Number of episodes used for evaluation.')
 flags.DEFINE_integer('log_interval', 1000, 'Logging interval.')
-flags.DEFINE_integer('eval_interval', 5000, 'Eval interval.')
+flags.DEFINE_integer('eval_interval', 100000, 'Eval interval.')
 flags.DEFINE_integer('batch_size', 256, 'Mini batch size.')
 flags.DEFINE_integer('max_steps', int(1e6), 'Number of training steps.')
 flags.DEFINE_integer('num_pretraining_steps', int(1e6),
                      'Number of pretraining steps.')
-flags.DEFINE_integer('replay_buffer_size', None,
+flags.DEFINE_integer('replay_buffer_size', 2000000,
                      'Replay buffer size (=max_steps if unspecified).')
 flags.DEFINE_integer('init_dataset_size', None,
                      'Offline data size (uses all data if unspecified).')
 flags.DEFINE_boolean('tqdm', True, 'Use tqdm progress bar.')
 config_flags.DEFINE_config_file(
     'config',
-    'default.py',
+    'configs/antmaze_finetune_config.py',
     'File path to the training hyperparameter configuration.',
     lock_config=False)
 
