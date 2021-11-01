@@ -18,10 +18,15 @@ If you use this code for your research, please consider citing the paper:
 ### Install dependencies
 
 ```bash
+pip install --upgrade pip
+
 pip install -r requirements.txt
+
+# Installs the wheel compatible with Cuda 11 and cudnn 8.
+pip install "jax[cuda111]<=0.21.1" -f https://storage.googleapis.com/jax-releases/jax_releases.html
 ```
 
-See [instructions](https://github.com/google/jax#pip-installation-gpu-cuda) for CUDA.
+Also, see other configurations for CUDA [here](https://github.com/google/jax#pip-installation-gpu-cuda).
 
 ### Run training
 
