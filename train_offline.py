@@ -87,7 +87,9 @@ def main(_):
     kwargs = dict(FLAGS.config)
     agent = Learner(FLAGS.seed,
                     env.observation_space.sample()[np.newaxis],
-                    env.action_space.sample()[np.newaxis], **kwargs)
+                    env.action_space.sample()[np.newaxis],
+                    max_steps=FLAGS.max_steps,
+                    **kwargs)
 
     eval_returns = []
     for i in tqdm.tqdm(range(1, FLAGS.max_steps + 1),

@@ -59,6 +59,7 @@ class Learner(object):
                  expectile: float = 0.8,
                  temperature: float = 0.1,
                  dropout_rate: Optional[float] = None,
+                 max_steps: Optional[int] = None,
                  opt_decay_schedule: str = "cosine"):
         """
         An implementation of the version of Soft-Actor-Critic described in https://arxiv.org/abs/1801.01290
@@ -82,7 +83,7 @@ class Learner(object):
                                             tanh_squash_distribution=False)
 
         if opt_decay_schedule == "cosine":
-            schedule_fn = optax.cosine_decay_schedule(-actor_lr, int(1e6))
+            schedule_fn = optax.cosine_decay_schedule(-actor_lr, max_steps)
             optimiser = optax.chain(optax.scale_by_adam(),
                                     optax.scale_by_schedule(schedule_fn))
         else:
