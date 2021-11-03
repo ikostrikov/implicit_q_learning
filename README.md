@@ -13,6 +13,8 @@ If you use this code for your research, please consider citing the paper:
 }
 ```
 
+For a PyTorch reimplementation see https://github.com/rail-berkeley/rlkit/tree/master/examples/iql
+
 ## How to run the code
 
 ### Install dependencies
