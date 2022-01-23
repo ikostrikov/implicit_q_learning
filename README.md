@@ -25,7 +25,7 @@ pip install --upgrade pip
 pip install -r requirements.txt
 
 # Installs the wheel compatible with Cuda 11 and cudnn 8.
-pip install "jax[cuda111]<=0.21.1" -f https://storage.googleapis.com/jax-releases/jax_releases.html
+pip install --upgrade "jax[cuda]>=0.2.27" -f https://storage.googleapis.com/jax-releases/jax_releases.html
 ```
 
 Also, see other configurations for CUDA [here](https://github.com/google/jax#pip-installation-gpu-cuda).
